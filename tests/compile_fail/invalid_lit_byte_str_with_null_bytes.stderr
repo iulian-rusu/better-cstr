@@ -1,0 +1,7 @@
+error: proc macro panicked
+ --> tests/compile_fail/invalid_lit_byte_str_with_null_bytes.rs:4:5
+  |
+4 |     c!(b"This byte string contains a null byte \0!");
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = help: message: Byte string literal must be a valid C string: FromVecWithNulError { error_kind: InteriorNul(38), bytes: [84, 104, 105, 115, 32, 98, 121, 116, 101, 32, 115, 116, 114, 105, 110, 103, 32, 99, 111, 110, 116, 97, 105, 110, 115, 32, 97, 32, 110, 117, 108, 108, 32, 98, 121, 116, 101, 32, 0, 33, 0] }

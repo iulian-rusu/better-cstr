@@ -1,7 +1,5 @@
 # Better CStr Macro
 
-> Currently requires Nightly toolchain
-
 Are you tired of writing `.as_ptr()` after all your C-string literals?
 
 Simply use the `c!` macro:
@@ -17,3 +15,5 @@ fn main() {
     }
 }
 ```
+
+Supports any kind of string literal that does not contain a null byte.

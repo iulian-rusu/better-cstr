@@ -1,0 +1,5 @@
+error: Unsupported literal kind
+ --> tests/compile_fail/invalid_lit_bool.rs:4:8
+  |
+4 |     c!(true);
+  |        ^^^^
