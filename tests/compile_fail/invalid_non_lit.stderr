@@ -1,0 +1,5 @@
+error: expected literal
+ --> tests/compile_fail/invalid_non_lit.rs:4:8
+  |
+4 |     c!(std::ops::Add::add(34, 35));
+  |        ^^^

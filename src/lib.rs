@@ -3,14 +3,20 @@ use quote::quote;
 use std::ffi::CString;
 use syn::{parse_macro_input, Error, Lit, LitCStr};
 
-/// Transforms a string/byte string literal into a pointer to a C-string.
-///
+/// Transforms a string/byte string literal into a C-string pointer (`*const c_char`).
+/// 
+/// Generates a compile-time error if the provided literal cannot be converted to a C-string (e.g. if it contains null bytes).
 /// # Examples
-/// ```rs
-/// let ptr: *const c_char c!("test");
+/// 
 /// ```
+/// use better_cstr::c;
+/// let ptr = c!("test");
+/// ```
+/// 
 /// The above code is equivalent to:
-/// ```rs
+/// 
+/// ```
+/// use std::ffi::c_char;
 /// let ptr: *const c_char = c"test".as_ptr();
 /// ```
 #[proc_macro]

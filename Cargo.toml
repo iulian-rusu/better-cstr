@@ -1,7 +1,7 @@
 [package]
 name = "better_cstr"
 description = "A better macro for working with C strings"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 license = "MIT"
 readme = "README.md"

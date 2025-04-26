@@ -2,16 +2,15 @@ use better_cstr::c;
 use std::ffi::{c_char, CStr};
 
 #[test]
-fn given_valid_string_returns_pointer_to_cstr() {
+fn handles_valid_string_input() {
     let ptr: *const c_char = c!("Hello World");
-
     unsafe {
         assert_eq!("Hello World", CStr::from_ptr(ptr).to_str().unwrap());
     }
 }
 
 #[test]
-fn given_valid_raw_string_returns_pointer_to_cstr() {
+fn handles_valid_raw_string_input() {
     let ptr: *const c_char = c!(r"Raw \0");
 
     unsafe {
@@ -20,7 +19,7 @@ fn given_valid_raw_string_returns_pointer_to_cstr() {
 }
 
 #[test]
-fn given_valid_byte_string_returns_pointer_to_cstr() {
+fn handles_valid_byte_string_input() {
     let ptr: *const c_char = c!(b"Byte");
 
     unsafe {
@@ -29,7 +28,7 @@ fn given_valid_byte_string_returns_pointer_to_cstr() {
 }
 
 #[test]
-fn invalid_literal_fails_to_compile() {
+fn fails_to_compile_on_invalid_input() {
     let t = trybuild::TestCases::new();
-    t.compile_fail("tests/compile_fail/invalid_lit*.rs");
+    t.compile_fail("tests/compile_fail/invalid_*.rs");
 }
